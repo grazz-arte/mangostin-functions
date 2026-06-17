@@ -2,7 +2,6 @@
   "name": "mangostin-functions",
   "version": "1.0.0",
   "description": "Funções do projeto Mangostin",
-  "main": "src/functions/notify.js",
   "scripts": {
     "start": "func start"
   },
