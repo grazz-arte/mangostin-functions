@@ -18,13 +18,17 @@ app.http("anniversary", {
             hoje.getDate() === namoroInicio.getDate();
 
         return {
-            jsonBody: {
-                anniversary: aniversario,
-                months: meses,
-                message: aniversario
-                    ? `Hoje completamos ${meses} meses de namoro ❤️`
-                    : "Hoje não é aniversário mensal."
-            }
-        };
+    status: 200,
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        anniversary: aniversario,
+        months: meses,
+        message: aniversario
+            ? `Hoje completamos ${meses} meses de namoro ❤️`
+            : "Hoje não é aniversário mensal."
+    })
+};
     }
 });
