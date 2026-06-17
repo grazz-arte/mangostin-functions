@@ -1,3 +1,4 @@
+console.log("ANNIVERSARY LOADED");
 const { app } = require("@azure/functions");
 
 app.http("anniversary", {
