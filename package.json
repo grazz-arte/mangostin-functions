@@ -1,1 +1,9 @@
-
+{
+  "name": "mangostin-functions",
+  "version": "1.0.0",
+  "description": "Backend de notificações do Mangostin",
+  "main": "src/functions/notify.js",
+  "dependencies": {
+    "@azure/functions": "^4.0.0"
+  }
+}
