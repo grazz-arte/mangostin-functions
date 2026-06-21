@@ -25,7 +25,7 @@ app.http('sendtest', {
 
         // ⚠️ PEGAR O TOKEN DO PASSO ANTERIOR:
         // Substitua essa string pelo Token real que você gerou na tela do seu celular!
-        const tokenCelular = "COLE_AQUI_O_TOKEN_QUE_VOCE_GEROU_NO_CELULAR";
+        const tokenCelular = "dNoVk9ECdCxTV2l2_boKFA:APA91bEI2z2dVQ-_52rTtpYNH7c-Vn89n5WI--IleGUssfQ6G9a1Tr4FtcmolPCcSVNatqYlUWVzscXqloPhsgeKR8VX9pK0bx6lq9Y35eHm7_45dAsEUk";
 
         const messagePayload = {
             notification: {
@@ -35,8 +35,8 @@ app.http('sendtest', {
             // Configurações específicas para garantir que desperte no celular/PWA
             webpush: {
                 notification: {
-                    icon: 'https://raw.githubusercontent.com/SEU_USUARIO/mangostin/main/icon-192.png', // Ajuste com a URL do seu ícone se quiser
-                    badge: 'https://raw.githubusercontent.com/SEU_USUARIO/mangostin/main/icon-192.png'
+                    icon: 'https://raw.githubusercontent.com/grazz-arte/mangostin/main/icon-192.png', // Ajuste com a URL do seu ícone se quiser
+                    badge: 'https://raw.githubusercontent.com/grazz-arte/mangostin/main/icon-192.png'
                 }
             },
             token: tokenCelular
