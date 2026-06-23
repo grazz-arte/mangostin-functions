@@ -2,7 +2,7 @@
   "name": "mangostin-functions",
   "version": "1.0.0",
   "description": "Funções do projeto Mangostin",
-  "main": "src/functions/*.js",
+  "main": "src/functions/sendtest.js",
   "scripts": {
     "start": "func start"
   },
