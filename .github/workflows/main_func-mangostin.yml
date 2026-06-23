@@ -36,8 +36,8 @@ jobs:
           npm run build --if-present
           popd
 
-      # Correção: Faz o upload da pasta inteira (incluindo dependências ocultas) de forma nativa
-      . name: Upload artifact for deployment job
+      # Envia a pasta inteira (incluindo as dependências e arquivos ocultos do node_modules)
+      - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
@@ -64,7 +64,7 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_4EBB8AFE05164AC3A59E71F7BAF078C4 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_CC3ADB03C754445083BED7D537478A84 }}
 
-      # Correção: Executa a Action apontando para a pasta consolidada contendo o node_modules completo
+      # Faz o deploy íntegro da pasta raiz consolidada
       - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
         id: fa
