@@ -1,32 +1,72 @@
-const { app } = require("@azure/functions");
+// src/functions/anniversary.js
+const { app } = require('@azure/functions');
+const admin = require('firebase-admin');
 
-app.http("anniversary", {
-    methods: ["GET"],
-    authLevel: "anonymous",
+// Inicializa o Firebase apenas uma vez usando os valores diretos para evitar erros de JSON.parse
+if (admin.apps.length === 0) {
+    const projectId = "mangostin-notifications";
+    const clientEmail = "firebase-adminsdk-fcm@mangostin-notifications.iam.gserviceaccount.com";
+    const privateKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY || "ML628GmPmm-b-zNFMvbjTDeWPF5wnKphX8HEgVE4elA";
+
+    admin.initializeApp({
+        credential: admin.credential.cert({
+            projectId: projectId,
+            clientEmail: clientEmail,
+            privateKey: privateKey
+        })
+    });
+}
+
+app.http('anniversary', {
+    methods: ['POST', 'GET'],
+    authLevel: 'anonymous',
     handler: async (request, context) => {
-        context.log("Executando a função anniversary...");
+        context.log('Processando verificação de aniversário/notificação diária...');
 
-        [span_0](start_span)[span_1](start_span)const namoroInicio = new Date("2026-03-07");[span_0](end_span)[span_1](end_span)
-        const hoje = new Date();
+        // Token do seu celular atualizado (o mesmo usado no sendtest)
+        const tokenCelular = "dNoVk9ECdCxTV2l2_boKFA:APA91bEI2z2dVQ-_52rTtpYNH7c-Vn89n5WI--IleGUssfQ6G9a1Tr4FtcmolPCcSVNatqYlUWVzscXqloPhsgeKR8VX9pK0bx6lq9Y35eHm7_45dAsEUk";
 
-        let meses =
-            (hoje.getFullYear() - namoroInicio.getFullYear()) * 12 +
-            (hoje.getMonth() - namoroInicio.getMonth());
-
-        const aniversario = hoje.getDate() === namoroInicio.getDate();
-
-        // Correção v4: Usando jsonBody direto, sem JSON.stringify e sem headers manuais
-        return {
-            status: 200,
-            jsonBody: {
-                [span_2](start_span)anniversary: aniversario,[span_2](end_span)
-                [span_3](start_span)months: meses,[span_3](end_span)
-                message: aniversario
-                    ? [span_4](start_span)`Hoje completamos ${meses} meses de namoro ❤️`[span_4](end_span)
-                    [span_5](start_span): "Hoje não é aniversário mensal."[span_5](end_span)
-            }
+        // Configuração da mensagem de aniversário
+        const messagePayload = {
+            notification: {
+                title: '🎉 Parabéns! 🥭',
+                body: 'Hoje o Mangostin App comemora mais uma data especial com você!'
+            },
+            webpush: {
+                notification: {
+                    icon: 'https://raw.githubusercontent.com/grazz-arte/mangostin/main/icon-192.png',
+                    badge: 'https://raw.githubusercontent.com/grazz-arte/mangostin/main/icon-192.png'
+                }
+            },
+            token: tokenCelular
         };
+
+        try {
+            const response = await admin.messaging().send(messagePayload);
+            context.log('Notificação de aniversário disparada com sucesso:', response);
+
+            return {
+                status: 200,
+                jsonBody: {
+                    status: "success",
+                    message: "Notificação de aniversário enviada!",
+                    firebaseResponse: response
+                }
+            };
+        } catch (error) {
+            context.log('Erro ao enviar notificação de aniversário:', error);
+
+            return {
+                status: 500,
+                jsonBody: {
+                    status: "error",
+                    message: "Falha ao disparar push de aniversário",
+                    details: error.message
+                }
+            };
+        }
     }
 });
-// Exportação correta para o Azure Flex Consumption indexar a rota
+
+// Exportação obrigatória para o Azure Flex Consumption mapear a rota /api/anniversary
 module.exports = app;
