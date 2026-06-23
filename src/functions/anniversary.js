@@ -28,3 +28,5 @@ app.http("anniversary", {
         };
     }
 });
+// Exportação correta para o Azure Flex Consumption indexar a rota
+module.exports = app;
