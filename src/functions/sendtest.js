@@ -7,7 +7,6 @@ if (admin.apps.length === 0) {
     const projectId = "mangostin-notifications";
     const clientEmail = "firebase-adminsdk-fcm@mangostin-notifications.iam.gserviceaccount.com";
     const privateKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY || "ML628GmPmm-b-zNFMvbjTDeWPF5wnKphX8HEgVE4elA"; 
-    // Pegamos a string da chave privada direta da Azure ou usamos a sua padrão como fallback
 
     admin.initializeApp({
         credential: admin.credential.cert({
@@ -66,3 +65,6 @@ app.http('sendtest', {
         }
     }
 });
+
+// Exportação correta para o Azure Flex Consumption indexar a rota
+module.exports = app;
