@@ -2,12 +2,11 @@
   "name": "mangostin-functions",
   "version": "1.0.0",
   "description": "Funções do projeto Mangostin",
-  "main": "src/functions/sendtest.js",
+  "main": "index.js",
   "scripts": {
     "start": "func start"
   },
   "dependencies": {
-    "@azure/functions": "^4.0.0",
-    "firebase-admin": "^12.0.0"
+    "@azure/functions": "^4.0.0"
   }
 }
