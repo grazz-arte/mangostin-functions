@@ -1,7 +1,7 @@
 {
   "name": "mangostin-functions",
   "version": "1.0.0",
-  "description": "Funções do projeto Mangostin",
+  "description": "Funções projeto Mangostin",
   "main": "index.js",
   "scripts": {
     "start": "func start"
