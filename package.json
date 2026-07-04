@@ -1,7 +1,7 @@
 {
   "name": "mangostin-functions",
   "version": "1.0.0",
-  "description": "Funções projeto Mangostin",
+  "description": "Funções Azure do projeto Mangostin",
   "main": "index.js",
   "scripts": {
     "start": "func start"
