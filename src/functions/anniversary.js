@@ -1,72 +1,84 @@
-// src/functions/anniversary.js
-const { app } = require('@azure/functions');
-const admin = require('firebase-admin');
+const { app } = require("@azure/functions");
+const admin = require("firebase-admin");
 
-// Inicializa o Firebase apenas uma vez usando os valores diretos para evitar erros de JSON.parse
-if (admin.apps.length === 0) {
-    const projectId = "mangostin-notifications";
-    const clientEmail = "firebase-adminsdk-fcm@mangostin-notifications.iam.gserviceaccount.com";
-    const privateKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY || "ML628GmPmm-b-zNFMvbjTDeWPF5wnKphX8HEgVE4elA";
-
+// Inicializa o Firebase apenas uma vez
+if (!admin.apps.length) {
     admin.initializeApp({
         credential: admin.credential.cert({
-            projectId: projectId,
-            clientEmail: clientEmail,
-            privateKey: privateKey
+            projectId: process.env.FIREBASE_PROJECT_ID,
+            clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+            privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n")
         })
     });
 }
 
-app.http('anniversary', {
-    methods: ['POST', 'GET'],
-    authLevel: 'anonymous',
+app.http("anniversary", {
+    methods: ["GET"],
+    authLevel: "anonymous",
+
     handler: async (request, context) => {
-        context.log('Processando verificação de aniversário/notificação diária...');
 
-        // Token do seu celular atualizado (o mesmo usado no sendtest)
-        const tokenCelular = "dNoVk9ECdCxTV2l2_boKFA:APA91bEI2z2dVQ-_52rTtpYNH7c-Vn89n5WI--IleGUssfQ6G9a1Tr4FtcmolPCcSVNatqYlUWVzscXqloPhsgeKR8VX9pK0bx6lq9Y35eHm7_45dAsEUk";
+        const hoje = new Date();
 
-        // Configuração da mensagem de aniversário
-        const messagePayload = {
-            notification: {
-                title: '🎉 Parabéns! 🥭',
-                body: 'Hoje o Mangostin App comemora mais uma data especial com você!'
-            },
-            webpush: {
-                notification: {
-                    icon: 'https://raw.githubusercontent.com/grazz-arte/mangostin/main/icon-192.png',
-                    badge: 'https://raw.githubusercontent.com/grazz-arte/mangostin/main/icon-192.png'
-                }
-            },
-            token: tokenCelular
-        };
+        let titulo = "🥭 Mangostin";
+        let mensagem = "Hoje é mais um dia especial para nós ❤️";
+
+        // Dia 7 de cada mês
+        if (hoje.getDate() === 7) {
+            titulo = "❤️ Feliz Mêsversário!";
+            mensagem = "Mais um mês vivendo essa linda história de amor.";
+        }
+
+        // Dia dos Namorados (Brasil)
+        if (hoje.getDate() === 12 && hoje.getMonth() === 5) {
+            titulo = "🌹 Feliz Dia dos Namorados";
+            mensagem = "Você é o amor da minha vida. ❤️";
+        }
 
         try {
-            const response = await admin.messaging().send(messagePayload);
-            context.log('Notificação de aniversário disparada com sucesso:', response);
+
+            const response = await admin.messaging().send({
+
+                token: process.env.FCM_DEVICE_TOKEN,
+
+                notification: {
+                    title: titulo,
+                    body: mensagem
+                },
+
+                webpush: {
+                    notification: {
+                        icon: "https://raw.githubusercontent.com/grazz-arte/mangostin/main/icon-192.png",
+                        badge: "https://raw.githubusercontent.com/grazz-arte/mangostin/main/icon-192.png"
+                    }
+                }
+
+            });
 
             return {
                 status: 200,
                 jsonBody: {
-                    status: "success",
-                    message: "Notificação de aniversário enviada!",
+                    success: true,
                     firebaseResponse: response
                 }
             };
-        } catch (error) {
-            context.log('Erro ao enviar notificação de aniversário:', error);
+
+        } catch (err) {
+
+            context.log(err);
 
             return {
                 status: 500,
                 jsonBody: {
-                    status: "error",
-                    message: "Falha ao disparar push de aniversário",
-                    details: error.message
+                    success: false,
+                    error: err.message
                 }
             };
+
         }
+
     }
+
 });
 
-// Exportação obrigatória para o Azure Flex Consumption mapear a rota /api/anniversary
 module.exports = app;
