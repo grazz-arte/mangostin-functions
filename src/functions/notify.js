@@ -6,14 +6,19 @@ app.http("notify", {
 
     handler: async (request, context) => {
 
+        context.log("Notify executada com sucesso.");
+
         return {
+            status: 200,
             jsonBody: {
                 status: "ok",
+                service: "Mangostin Functions",
+                function: "notify",
                 message: "Mangostin funcionando ❤️"
             }
         };
 
     }
 });
-// Exportação correta para o Azure Flex Consumption indexar a rota
+
 module.exports = app;
