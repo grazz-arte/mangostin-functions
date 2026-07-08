@@ -18,6 +18,11 @@ app.timer("mangostinScheduler", {
     const hoje = new Date();
 
     const hora = hoje.getUTCHours();
+     if (![3, 12, 17, 22].includes(hora)) {
+    return;
+}
+    let title = "🌙 Mangostin";
+    let body = "Hoje é mais um dia especial para nós ❤️";
 
 // 09h Brasil
 if (hora === 12) {
@@ -55,20 +60,41 @@ if (hora === 3) {
         body = "Você é o amor da minha vida ❤️";
     }
 
-    await admin.messaging().send({
-            token: process.env.FCM_DEVICE_TOKEN,
+    const snapshot = await admin
+            .firestore()
+            .collection("devices")
+            .get();
 
-            notification: {
-                title,
-                body
-            },
+        for (const doc of snapshot.docs) {
 
-            webpush: {
-                notification: {
-                    icon: "https://grazz-arte.github.io/mangostin/icon-192.png"
-                }
+            const token = doc.data().token;
+
+            try {
+
+                await admin.messaging().send({
+                    token,
+
+                    notification: {
+                        title,
+                        body
+                    },
+
+                    webpush: {
+                        notification: {
+                            icon: "https://grazz-arte.github.io/mangostin/icon-192.png"
+                        }
+                    }
+                });
+
+                console.log(`Enviado para: ${token}`);
+
+            } catch (err) {
+
+                console.error(`Erro ao enviar para ${token}`, err);
+
             }
-        });
+        }
     }
 });
+
 module.exports = app;
