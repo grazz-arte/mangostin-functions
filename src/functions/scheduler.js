@@ -10,7 +10,7 @@ if (!admin.apps.length) {
         })
     });
 }
-
+// schedule: "0 */2 * * * *"
 app.timer("mangostinScheduler", {
     schedule: "0 0 3,12,17,22 * * *",
 
