@@ -20,32 +20,29 @@ app.timer("mangostinScheduler", {
 
     const hora = hoje.getUTCHours();
 
-    let title = "🥭 Mangostin";
-    let body = "Hoje é mais um dia especial para nós ❤️";
+// 09h Brasil
+if (hora === 12) {
+    title = "☀️ Bom dia, meu amor";
+    body = "Que seu dia seja tão lindo quanto seu sorriso ❤️";
+}
 
-    // 08h Brasil
-    if (hora === 11) {
-        title = "☀️ Bom dia meu amor";
-        body = "Espero que seu dia seja lindo ❤️";
-    }
+// 14h Brasil
+if (hora === 17) {
+    title = "🥭 Mangostin";
+    body = "Passando para lembrar que eu te amo ❤️";
+}
 
-    // 12h Brasil
-    if (hora === 15) {
-        title = "🍽️ Hora do almoço";
-        body = "Não esqueça de se alimentar direitinho 😘";
-    }
+// 19h Brasil
+if (hora === 22) {
+    title = "🌙 Boa noite";
+    body = "Espero que seu dia tenha sido maravilhoso ❤️";
+}
 
-    // 18h Brasil
-    if (hora === 21) {
-        title = "🌆 Boa noite";
-        body = "Como foi seu dia? ❤️";
-    }
-
-    // 22h Brasil
-    if (hora === 1) {
-        title = "🌙 Hora de descansar";
-        body = "Durma bem meu amor ❤️";
-    }
+// 00h Brasil
+if (hora === 3) {
+    title = "💫 Antes de dormir...";
+    body = "Mais um dia ao seu lado valeu a pena ❤️";
+}
 
     // Dia 7
     if (hoje.getDate() === 7) {
