@@ -18,9 +18,9 @@ app.timer("mangostinScheduler", {
     const hoje = new Date();
 
     const hora = hoje.getUTCHours();
-     if (![3, 12, 17, 22].includes(hora)) {
+    /* if (![3, 12, 17, 22].includes(hora)) {
     return;
-}
+}*/
     let title = "🌙 Mangostin";
     let body = "Hoje é mais um dia especial para nós ❤️";
 
