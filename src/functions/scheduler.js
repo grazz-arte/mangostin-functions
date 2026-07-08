@@ -92,10 +92,11 @@ if (hora === 3) {
                     },
 
                     webpush: {
-                        notification: {
-                            icon: "https://grazz-arte.github.io/mangostin/icon-192.png"
-                        }
-                    }
+    notification: {
+        icon: "https://grazz-arte.github.io/mangostin/icon-192.png",
+        badge: "https://grazz-arte.github.io/mangostin/icon-192.png"
+    }
+}
                 });
 
                 console.log(`Enviado para: ${token}`);
