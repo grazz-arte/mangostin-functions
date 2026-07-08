@@ -22,28 +22,42 @@ app.timer("mangostinScheduler", {
     let title = "🌙 Mangostin";
     let body = "passando para lembrar que eu te amo ❤️";
 
+const mensagens = [
+    "Hoje é mais um dia especial para nós ❤️",
+    "Você é meu pensamento favorito ❤️",
+    "Só passando para lembrar que eu te amo ❤️",
+    "Espero que esteja sorrindo agora ❤️",
+    "Você torna meus dias melhores ❤️",
+    "Pensando em você 🥰",
+    "Mais um momento para lembrar o quanto você é especial ⭐"
+];
+
+body = mensagens[Math.floor(Math.random() * mensagens.length)];
+
+
+// HORÁRIOS PROGRAMADOS 
 // 09h Brasil
 if (hora === 12) {
     title = "☀️ BLESSED DAY ";
-    body = "Que seu dia seja tão lindo quanto seu sorriso ❤️";
+    body = "Que seu dia seja tão lindo quanto seu sorriso ⭐";
 }
 
 // 14h Brasil
 if (hora === 17) {
     title = "🥭 Mangostin";
-    body = "minha deusa, minha princesa, amor da minha vida ❤️";
+    body = "minha deusa, minha princesa, amor da minha vida ⭐";
 }
 
 // 19h Brasil
 if (hora === 22) {
-    title = "🌙 BLESSED NIGTH";
-    body = "Espero que seu dia tenha sido maravilhoso MINHA DEUSA ❤️";
+    title = "🌙 BLESSED NIGHT";
+    body = "Espero que seu dia tenha sido maravilhoso, assim como é dormir ao seu lado todos os dias ⭐";
 }
 
 // 00h Brasil
 if (hora === 3) {
     title = "💫 PRAISE BE";
-    body = "Mais um dia ao seu lado valeu a pena ❤️";
+    body = "Mais um dia ao seu lado valeu a pena ⭐";
 }
 
     // Dia 7
