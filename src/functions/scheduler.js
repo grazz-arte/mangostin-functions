@@ -11,40 +11,38 @@ if (!admin.apps.length) {
     });
 }
 app.timer("mangostinScheduler", {
-    schedule: "0 */2 * * * *",
+    schedule: "0 0 * * * *",
 
     handler: async () => {
 
     const hoje = new Date();
 
     const hora = hoje.getUTCHours();
-    /* if (![3, 12, 17, 22].includes(hora)) {
-    return;
-}*/
+    
     let title = "🌙 Mangostin";
-    let body = "Hoje é mais um dia especial para nós ❤️";
+    let body = "passando para lembrar que eu te amo ❤️";
 
 // 09h Brasil
 if (hora === 12) {
-    title = "☀️ Bom dia, meu amor";
+    title = "☀️ BLESSED DAY ";
     body = "Que seu dia seja tão lindo quanto seu sorriso ❤️";
 }
 
 // 14h Brasil
 if (hora === 17) {
     title = "🥭 Mangostin";
-    body = "Passando para lembrar que eu te amo ❤️";
+    body = "minha deusa, minha princesa, amor da minha vida ❤️";
 }
 
 // 19h Brasil
 if (hora === 22) {
-    title = "🌙 Boa noite";
-    body = "Espero que seu dia tenha sido maravilhoso ❤️";
+    title = "🌙 BLESSED NIGTH";
+    body = "Espero que seu dia tenha sido maravilhoso MINHA DEUSA ❤️";
 }
 
 // 00h Brasil
 if (hora === 3) {
-    title = "💫 Antes de dormir...";
+    title = "💫 PRAISE BE";
     body = "Mais um dia ao seu lado valeu a pena ❤️";
 }
 
