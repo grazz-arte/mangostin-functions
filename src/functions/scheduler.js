@@ -16,24 +16,50 @@ app.timer("mangostinScheduler", {
 
     handler: async () => {
 
-        const hoje = new Date();
+    const hoje = new Date();
 
-        let title = "🥭 Mangostin";
-        let body = "Hoje é mais um dia especial para nós ❤️";
+    const hora = hoje.getUTCHours();
 
-        // Dia 7
-        if (hoje.getDate() === 7) {
-            title = "❤️ Feliz Mêsversário!";
-            body = "Mais um mês construindo nossa história.";
-        }
+    let title = "🥭 Mangostin";
+    let body = "Hoje é mais um dia especial para nós ❤️";
 
-        // Dia dos Namorados
-        if (hoje.getDate() === 12 && hoje.getMonth() === 5) {
-            title = "🌹 Feliz Dia dos Namorados";
-            body = "Você é o amor da minha vida ❤️";
-        }
+    // 08h Brasil
+    if (hora === 11) {
+        title = "☀️ Bom dia meu amor";
+        body = "Espero que seu dia seja lindo ❤️";
+    }
 
-        await admin.messaging().send({
+    // 12h Brasil
+    if (hora === 15) {
+        title = "🍽️ Hora do almoço";
+        body = "Não esqueça de se alimentar direitinho 😘";
+    }
+
+    // 18h Brasil
+    if (hora === 21) {
+        title = "🌆 Boa noite";
+        body = "Como foi seu dia? ❤️";
+    }
+
+    // 22h Brasil
+    if (hora === 1) {
+        title = "🌙 Hora de descansar";
+        body = "Durma bem meu amor ❤️";
+    }
+
+    // Dia 7
+    if (hoje.getDate() === 7) {
+        title = "❤️ Feliz Mêsversário!";
+        body = "Mais um mês construindo nossa história.";
+    }
+
+    // Dia dos Namorados
+    if (hoje.getDate() === 12 && hoje.getMonth() === 5) {
+        title = "🌹 Feliz Dia dos Namorados";
+        body = "Você é o amor da minha vida ❤️";
+    }
+
+    await admin.messaging().send({
             token: process.env.FCM_DEVICE_TOKEN,
 
             notification: {
