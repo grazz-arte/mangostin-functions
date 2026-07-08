@@ -1,4 +1,15 @@
 const { app } = require("@azure/functions");
+const admin = require("firebase-admin");
+
+if (!admin.apps.length) {
+    admin.initializeApp({
+        credential: admin.credential.cert({
+            projectId: process.env.FIREBASE_PROJECT_ID,
+            clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+            privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n")
+        })
+    });
+}
 
 app.http("registertoken", {
     methods: ["POST"],
@@ -20,8 +31,16 @@ app.http("registertoken", {
                 };
             }
 
-            context.log("Novo token recebido:");
-            context.log(body.token);
+            await admin.firestore()
+    .collection("devices")
+    .doc(body.token)
+    .set({
+        token: body.token,
+        createdAt: new Date().toISOString()
+    });
+
+context.log("Token salvo:");
+context.log(body.token);
 
             return {
                 status: 200,
