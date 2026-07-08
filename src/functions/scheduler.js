@@ -51,7 +51,9 @@ if (hora === 17) {
 // 19h Brasil
 if (hora === 22) {
     title = "🌙 BLESSED NIGHT";
-    body = "Espero que seu dia tenha sido maravilhoso, assim como é dormir ao seu lado todos os dias ⭐";
+    body =  "HOJE TEM, HOJE TEM, HOJE TEM 😜 🌑🌒🌓🌔🌕🌖🌗🌘🌑
+
+/*"Espero que seu dia tenha sido maravilhoso, assim como é dormir ao seu lado todos os dias ⭐";*/
 }
 
 // 00h Brasil
