@@ -49,3 +49,4 @@ app.timer("mangostinScheduler", {
         });
     }
 });
+module.exports = app;
