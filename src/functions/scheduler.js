@@ -49,11 +49,10 @@ if (hora === 17) {
 }
 
 // 19h Brasil
-if (hora === 22) {
+if (hora === 23) {
     title = "🌙 BLESSED NIGHT";
-    body =  "HOJE TEM, HOJE TEM, HOJE TEM 😜 🌑🌒🌓🌔🌕🌖🌗🌘🌑
+    body =  "HOJE TEM, HOJE TEM, HOJE TEM 😜 🌑🌒🌓🌔🌕🌖🌗🌘🌑";
 
-/*"Espero que seu dia tenha sido maravilhoso, assim como é dormir ao seu lado todos os dias ⭐";*/
 }
 
 // 00h Brasil
