@@ -100,10 +100,14 @@ console.log("Dispositivos:", snapshot.docs.length);
                     },
 
                     webpush: {
-    notification: {
-        icon: "https://grazz-arte.github.io/mangostin/icon-192.png",
-        badge: "https://grazz-arte.github.io/mangostin/icon-192.png"
-    }
+  notification: {
+    title,
+    body,
+    icon: "https://grazz-arte.github.io/mangostin/icon-192.png",
+    badge: "https://grazz-arte.github.io/mangostin/icon-192.png",
+    tag: Date.now().toString(),
+    requireInteraction: true
+  }
 }
                 });
 
