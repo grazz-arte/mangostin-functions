@@ -11,7 +11,7 @@ if (!admin.apps.length) {
     });
 }
 app.timer("mangostinScheduler", {
-    schedule: "0 13,23,33 * * * *",
+    schedule: "0 03,13,23,33 * * * *",
 
     handler: async () => {
 
@@ -22,16 +22,17 @@ console.log("UTC:", hoje.toISOString());
 console.log("Hora UTC:", hora);
     
     let title = "🌙 Mangostin";
-    let body = "passando para lembrar que eu te amo ❤️";
+    let body = "passando para lembrar que eu te amo ⭐";
 
 const mensagens = [
-    "Hoje é mais um dia especial para nós ❤️",
-    "Você é meu pensamento favorito ❤️",
-    "Só passando para lembrar que eu te amo ❤️",
-    "Espero que esteja sorrindo agora ❤️",
-    "Você torna meus dias melhores ❤️",
-    "Pensando em você 🥰",
-    "Mais um momento para lembrar o quanto você é especial ⭐"
+    "Hoje é mais um dia especial para mim, pois tenho você comigo ⭐",
+    "Você é meu pensamento favorito, minha cor favorita , meu som, meu céu, minha vida ⭐",
+    "Só passando para lembrar que eu te amo, mais que ontem, cada dia mais ⭐",
+    "Espero que esteja sorrindo agora, preciso da energia do seu sorriso para sorrir também ⭐",
+    "Você torna meus dias melhores, você é mó legal, minha parceira ⭐",
+    "Sou completamente apaixonada por você minha Deusa do amor ⭐",
+    "Mais um momento para lembrar o quanto você é especial ⭐",
+"Nunca foi balela o meu sentimento por você ⭐" 
 ];
 
 body = mensagens[Math.floor(Math.random() * mensagens.length)];
