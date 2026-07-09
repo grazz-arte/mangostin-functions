@@ -18,6 +18,8 @@ app.timer("mangostinScheduler", {
     const hoje = new Date();
 
     const hora = hoje.getUTCHours();
+console.log("UTC:", hoje.toISOString());
+console.log("Hora UTC:", hora);
     
     let title = "🌙 Mangostin";
     let body = "passando para lembrar que eu te amo ❤️";
@@ -77,6 +79,10 @@ if (hora === 3) {
             .firestore()
             .collection("devices")
             .get();
+
+console.log("Título:", title);
+console.log("Mensagem:", body);
+console.log("Dispositivos:", snapshot.docs.length);
 
         for (const doc of snapshot.docs) {
 
