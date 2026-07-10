@@ -91,9 +91,12 @@ console.log("Dispositivos:", snapshot.docs.length);
 
             try {
 
-                await admin.messaging().send({
+                const response = await admin.messaging().send({
     token,
-
+    notification: {
+        title,
+        body
+    },
     webpush: {
         notification: {
             title,
@@ -105,6 +108,8 @@ console.log("Dispositivos:", snapshot.docs.length);
         }
     }
 });
+
+console.log("Firebase Message ID:", response);
                 console.log(`Enviado para: ${token}`);
 
             } catch (err) {
