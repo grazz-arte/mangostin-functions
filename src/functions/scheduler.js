@@ -92,25 +92,19 @@ console.log("Dispositivos:", snapshot.docs.length);
             try {
 
                 await admin.messaging().send({
-                    token,
+    token,
 
-                    notification: {
-                        title,
-                        body
-                    },
-
-                    webpush: {
-  notification: {
-    title,
-    body,
-    icon: "https://grazz-arte.github.io/mangostin/icon-192.png",
-    badge: "https://grazz-arte.github.io/mangostin/icon-192.png",
-    tag: Date.now().toString(),
-    requireInteraction: true
-  }
-}
-                });
-
+    webpush: {
+        notification: {
+            title,
+            body,
+            icon: "https://grazz-arte.github.io/mangostin/icon-192.png",
+            badge: "https://grazz-arte.github.io/mangostin/icon-192.png",
+            tag: Date.now().toString(),
+            requireInteraction: true
+        }
+    }
+});
                 console.log(`Enviado para: ${token}`);
 
             } catch (err) {
