@@ -38,8 +38,7 @@ const mensagens = [
 body = mensagens[Math.floor(Math.random() * mensagens.length)];
 
 
-// HORÁRIOS PROGRAMADOS 
-// 09h Brasil
+// HORÁRIOS PROGRAMADOS 09h Brasil
 if (hora === 12) {
     title = "☀️ BLESSED DAY ";
     body = "Que seu dia seja tão lindo quanto seu sorriso ⭐";
@@ -52,7 +51,7 @@ if (hora === 17) {
 }
 
 // 19h Brasil
-if (hora === 23) {
+if (hora === 22) {
     title = "🌙 BLESSED NIGHT";
     body =  "HOJE TEM, HOJE TEM, HOJE TEM 😜 🌑🌒🌓🌔🌕🌖🌗🌘🌑";
 
