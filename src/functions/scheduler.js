@@ -93,10 +93,7 @@ console.log("Dispositivos:", snapshot.docs.length);
 
                 const response = await admin.messaging().send({
     token,
-    notification: {
-        title,
-        body
-    },
+    
     webpush: {
         notification: {
             title,
