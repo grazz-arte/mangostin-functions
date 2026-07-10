@@ -17,9 +17,12 @@ app.timer("mangostinScheduler", {
 
     const hoje = new Date();
 
-    const hora = hoje.getUTCHours();
+const hora = hoje.getUTCHours();
+
 console.log("UTC:", hoje.toISOString());
 console.log("Hora UTC:", hora);
+console.log("Data UTC:", hoje.getUTCDate());
+console.log("Mês UTC:", hoje.getUTCMonth());
     
     let title = "🌙 Mangostin";
     let body = "passando para lembrar que eu te amo ⭐";
