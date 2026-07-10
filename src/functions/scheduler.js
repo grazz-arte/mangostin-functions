@@ -60,6 +60,13 @@ if (hora === 22) {
 
 }
 
+// 21h Brasil
+if (hora === 24) {
+    title = "🌙 BLESSED NIGHT";
+    body =  "HOJE TEM, HOJE TEM, HOJE TEM 😜 🌑🌒🌓🌔🌕🌖🌗🌘🌑";
+
+}
+
 // 00h Brasil
 if (hora === 3) {
     title = "💫 PRAISE BE";
