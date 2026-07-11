@@ -60,12 +60,6 @@ if (hora === 22) {
 
 }
 
-// 21h Brasil
-if (hora === 24) {
-    title = "🌙 BLESSED NIGHT";
-    body =  "HOJE TEM, HOJE TEM, HOJE TEM 😜 🌑🌒🌓🌔🌕🌖🌗🌘🌑";
-
-}
 
 // 00h Brasil
 if (hora === 3) {
@@ -102,8 +96,12 @@ console.log("Dispositivos:", snapshot.docs.length);
 
                 const response = await admin.messaging().send({
     token,
-    
+
     webpush: {
+        headers: {
+            Urgency: "high"
+        },
+
         notification: {
             title,
             body,
