@@ -52,7 +52,7 @@ body += ` ✨${Date.now().toString().slice(-4)}`;
 let enviar = false;
 
 // ALEATÓRIAS
-if ([3, 13, 23, 33].includes(minuto)) {
+if ([3, 13, 23, 33,43,53].includes(minuto)) {
     enviar = true;
 }
 
@@ -100,7 +100,7 @@ if (!enviar) {
     }
 
     // Dia dos Namorados
-    if (brasil.getDate() === 12 && hoje.getMonth() === 5) {
+    if (brasil.getDate() === 12 && brasil.getMonth() === 5) {
         title = "🌹 Feliz Dia dos Namorados";
         body = "Você é o amor da minha vida ❤️";
     }
