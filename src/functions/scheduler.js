@@ -40,7 +40,7 @@ const mensagens = [
 
 body = mensagens[Math.floor(Math.random() * mensagens.length)];
 
-body += ` (${hoje.getHours()}:${hoje.getMinutes()})`;
+body += ` ✨${Date.now().toString().slice(-4)}`;
 
 // HORÁRIOS PROGRAMADOS 09h Brasil
 if (hora === 12) {
