@@ -11,7 +11,7 @@ if (!admin.apps.length) {
     });
 }
 app.timer("mangostinScheduler", {
-    schedule: "0 03,13,23,33 * * * *",
+    schedule: "0 03,13,23,33,43,53 * * * *",
 
     handler: async () => {
 
