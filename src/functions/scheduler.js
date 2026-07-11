@@ -47,12 +47,11 @@ const mensagens = [
 
 body = mensagens[Math.floor(Math.random() * mensagens.length)];
 
-body += ` ✨${Date.now().toString().slice(-4)}`;
 
 let enviar = false;
 
 // ALEATÓRIAS
-if ([3, 13, 23, 33,43,53].includes(minuto)) {
+if ([3, 13, 23, 33, 43, 53].includes(minuto)) {
     enviar = true;
 }
 
