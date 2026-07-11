@@ -25,17 +25,17 @@ console.log("Data UTC:", hoje.getUTCDate());
 console.log("Mês UTC:", hoje.getUTCMonth());
     
     let title = "🌙 Mangostin";
-    let body = "passando para lembrar que eu te amo ⭐";
+    let body = "passando para lembrar que eu te amo π⭐";
 
 const mensagens = [
-    "Hoje é mais um dia especial para mim, pois tenho você comigo ⭐",
-    "Você é meu pensamento favorito, minha cor favorita , meu som, meu céu, minha vida ⭐",
-    "Só passando para lembrar que eu te amo, mais que ontem, cada dia mais ⭐",
-    "Espero que esteja sorrindo agora, preciso da energia do seu sorriso para sorrir também ⭐",
-    "Você torna meus dias melhores, você é mó legal, minha parceira ⭐",
-    "Sou completamente apaixonada por você minha Deusa do amor ⭐",
-    "Mais um momento para lembrar o quanto você é especial ⭐",
-"Nunca foi balela o meu sentimento por você ⭐" 
+    "Hoje é mais um dia especial para mim, pois tenho você comigo π⭐",
+    "Você é meu pensamento favorito, minha cor favorita , meu som, meu céu, minha vida π⭐",
+    "Só passando para lembrar que eu te amo, mais que ontem, cada dia mais π⭐",
+    "Espero que esteja sorrindo agora, preciso da energia do seu sorriso para sorrir também π⭐",
+    "Você torna meus dias melhores, você é mó legal, minha parceira π⭐",
+    "Sou completamente apaixonada por você minha Deusa do amor π⭐",
+    "Mais um momento para lembrar o quanto você é especial π ⭐",
+"Nunca foi balela o meu sentimento por você π ⭐" 
 ];
 
 body = mensagens[Math.floor(Math.random() * mensagens.length)];
