@@ -17,14 +17,21 @@ app.timer("mangostinScheduler", {
 
     const hoje = new Date();
 
-const hora = hoje.getUTCHours();
+    const brasil = new Date(
+        hoje.toLocaleString("en-US", {
+            timeZone: "America/Sao_Paulo"
+        })
+    );
 
-console.log("UTC:", hoje.toISOString());
-console.log("Hora UTC:", hora);
-console.log("Data UTC:", hoje.getUTCDate());
-console.log("Mês UTC:", hoje.getUTCMonth());
-    
+    const hora = brasil.getHours();
+
+    console.log("UTC:", hoje.toISOString());
+    console.log("Hora Brasil:", hora);
+    console.log("Data Brasil:", brasil.getDate());
+    console.log("Mês Brasil:", brasil.getMonth());
+
     let title = "🌙 Mangostin";
+  
     let body = "passando para lembrar que eu te amo π⭐";
 
 const mensagens = [
@@ -43,19 +50,19 @@ body = mensagens[Math.floor(Math.random() * mensagens.length)];
 body += ` ✨${Date.now().toString().slice(-4)}`;
 
 // HORÁRIOS PROGRAMADOS 09h Brasil
-if (hora === 12) {
+if (hora === 09) {
     title = "☀️ BLESSED DAY ";
     body = "Que seu dia seja tão lindo quanto seu sorriso ⭐";
 }
 
 // 14h Brasil
-if (hora === 17) {
+if (hora === 14) {
     title = "🥭 Mangostin";
     body = "minha deusa, minha princesa, amor da minha vida ⭐";
 }
 
 // 19h Brasil
-if (hora === 22) {
+if (hora === 19) {
     title = "🌙 BLESSED NIGHT";
     body =  "HOJE TEM, HOJE TEM, HOJE TEM 😜 🌑🌒🌓🌔🌕🌖🌗🌘🌑";
 
@@ -63,19 +70,19 @@ if (hora === 22) {
 
 
 // 00h Brasil
-if (hora === 3) {
+if (hora === 0) {
     title = "💫 PRAISE BE";
     body = "Mais um dia ao seu lado valeu a pena ⭐";
 }
 
     // Dia 7
-    if (hoje.getDate() === 7) {
+    if (brasil.getDate() === 7) {
         title = "❤️ Feliz Mêsversário!";
         body = "Mais um mês construindo nossa história.";
     }
 
     // Dia dos Namorados
-    if (hoje.getDate() === 12 && hoje.getMonth() === 5) {
+    if (brasil.getDate() === 12 && hoje.getMonth() === 5) {
         title = "🌹 Feliz Dia dos Namorados";
         body = "Você é o amor da minha vida ❤️";
     }
