@@ -11,24 +11,24 @@ if (!admin.apps.length) {
     });
 }
 app.timer("mangostinScheduler", {
-    schedule: "0 03,13,23,33,43,53 * * * *",
+    schedule: "0 * * * * *",
 
     handler: async () => {
 
     const hoje = new Date();
 
-    const brasil = new Date(
-        hoje.toLocaleString("en-US", {
-            timeZone: "America/Sao_Paulo"
-        })
-    );
+const brasil = new Date(
+    hoje.toLocaleString("en-US", {
+        timeZone: "America/Sao_Paulo"
+    })
+);
 
-    const hora = brasil.getHours();
+const hora = brasil.getHours();
+const minuto = brasil.getMinutes();
 
-    console.log("UTC:", hoje.toISOString());
-    console.log("Hora Brasil:", hora);
-    console.log("Data Brasil:", brasil.getDate());
-    console.log("Mês Brasil:", brasil.getMonth());
+console.log("Brasil:", brasil);
+console.log("Hora Brasil:", hora);
+console.log("Minuto Brasil:", minuto);
 
     let title = "🌙 Mangostin";
   
@@ -49,32 +49,50 @@ body = mensagens[Math.floor(Math.random() * mensagens.length)];
 
 body += ` ✨${Date.now().toString().slice(-4)}`;
 
-// HORÁRIOS PROGRAMADOS 09h Brasil
-if (hora === 09) {
-    title = "☀️ BLESSED DAY ";
+let enviar = false;
+
+// ALEATÓRIAS
+if ([3, 13, 23, 33].includes(minuto)) {
+    enviar = true;
+}
+
+// 09:00
+if (hora === 9 && minuto === 0) {
+    enviar = true;
+
+    title = "☀️ BLESSED DAY";
     body = "Que seu dia seja tão lindo quanto seu sorriso ⭐";
 }
 
-// 14h Brasil
-if (hora === 14) {
+// 14:00
+if (hora === 14 && minuto === 0) {
+    enviar = true;
+
     title = "🥭 Mangostin";
     body = "minha deusa, minha princesa, amor da minha vida ⭐";
 }
 
-// 19h Brasil
-if (hora === 19) {
-    title = "🌙 BLESSED NIGHT";
-    body =  "HOJE TEM, HOJE TEM, HOJE TEM 😜 🌑🌒🌓🌔🌕🌖🌗🌘🌑";
+// 19:00
+if (hora === 19 && minuto === 0) {
+    enviar = true;
 
+    title = "🌙 BLESSED NIGHT";
+    body = "HOJE TEM, HOJE TEM, HOJE TEM 😜 🌑🌒🌓🌔🌕🌖🌗🌘🌑";
 }
 
+// 00:00
+if (hora === 0 && minuto === 0) {
+    enviar = true;
 
-// 00h Brasil
-if (hora === 0) {
     title = "💫 PRAISE BE";
     body = "Mais um dia ao seu lado valeu a pena ⭐";
 }
 
+// Não envia nada fora dos horários definidos
+if (!enviar) {
+    console.log("Nenhuma notificação programada para este minuto.");
+    return;
+}
     // Dia 7
     if (brasil.getDate() === 7) {
         title = "❤️ Feliz Mêsversário!";
