@@ -88,7 +88,7 @@ capítulo ao seu lado.⭐"
 felicidade.⭐"
 ,
 "Amo cada pequeno detalhe seu, desde seu sorriso até a forma como você me faz sentir amada.⭐"
-,
+
 
 ];
 
