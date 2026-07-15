@@ -40,11 +40,11 @@ const mensagens = [
     "Só passando para lembrar que eu te amo, mais que ontem, cada dia mais π⭐",
     "Espero que esteja sorrindo agora, preciso da energia do seu sorriso para sorrir também π⭐",
     "Você torna meus dias melhores, você é mó legal, minha parceira π⭐",
-    "Sou completamente apaixonada por você minha Deusa do amor π⭐",
-
+    "Sou completamente apaixonada por você minha Deusa do amor π⭐"
+,
     "Mais um momento para lembrar o quanto você é especial π ⭐"
 ,
-"Nunca foi balela o meu sentimento por você π ⭐" 
+    "Nunca foi balela o meu sentimento por você π ⭐" 
 ,
 "Te amo, meu amor, e a cada dia que passa, meu carinho por você só cresce mais e mais. ⭐"
 ,
@@ -88,8 +88,6 @@ capítulo ao seu lado.⭐"
 felicidade.⭐"
 ,
 "Amo cada pequeno detalhe seu, desde seu sorriso até a forma como você me faz sentir amada.⭐"
-
-
 ];
 
 body = mensagens[Math.floor(Math.random() * mensagens.length)];
@@ -121,7 +119,7 @@ console.log("DISPARO: Mangostin");
 }
 
 // 19:00
-if (hora === 14 && minuto === 50) {
+if (hora === 20 && minuto === 20) {
     enviar = true;
 
     title = "🌙 BLESSED NIGHT";
