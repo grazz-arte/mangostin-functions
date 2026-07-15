@@ -99,7 +99,8 @@ let enviar = false;
 if ([3, 13, 23, 33, 43, 53].includes(minuto)) {
     enviar = true;
 }
-
+console.log("HORA:", hora);
+console.log("MINUTO:", minuto);
 // 09:00
 if (hora === 13 && minuto === 20) {
     enviar = true;
