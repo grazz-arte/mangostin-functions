@@ -121,7 +121,7 @@ console.log("DISPARO: Mangostin");
 }
 
 // 19:00
-if (hora === 19 && minuto === 0) {
+if (hora === 14 && minuto === 50) {
     enviar = true;
 
     title = "🌙 BLESSED NIGHT";
