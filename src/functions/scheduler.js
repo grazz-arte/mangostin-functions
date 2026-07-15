@@ -56,11 +56,12 @@ if ([3, 13, 23, 33, 43, 53].includes(minuto)) {
 }
 
 // 09:00
-if (hora === 9 && minuto === 0) {
+if (hora === 13 && minuto === 20) {
     enviar = true;
 
     title = "☀️ BLESSED DAY";
     body = "Que seu dia seja tão lindo quanto seu sorriso ⭐";
+console.log("DISPARO: BLESSED DAY");
 }
 
 // 14:00
@@ -69,6 +70,7 @@ if (hora === 14 && minuto === 0) {
 
     title = "🥭 Mangostin";
     body = "minha deusa, minha princesa, amor da minha vida ⭐";
+console.log("DISPARO: Mangostin");
 }
 
 // 19:00
@@ -77,6 +79,7 @@ if (hora === 19 && minuto === 0) {
 
     title = "🌙 BLESSED NIGHT";
     body = "HOJE TEM, HOJE TEM, HOJE TEM 😜 🌑🌒🌓🌔🌕🌖🌗🌘🌑";
+console.log("DISPARO: BLESSED NIGHT");
 }
 
 // 00:00
@@ -85,6 +88,7 @@ if (hora === 0 && minuto === 0) {
 
     title = "💫 PRAISE BE";
     body = "Mais um dia ao seu lado valeu a pena ⭐";
+console.log("DISPARO: 💫 PRAISE BE");
 }
 
 // Não envia nada fora dos horários definidos
