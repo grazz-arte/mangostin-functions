@@ -48,8 +48,7 @@ const mensagens = [
 "Meu amor por você é como o céu, infinito e sempre ali iluminando meus dias e noites.⭐",
 "Te amar é a melhor parte da minha vida, e sou eternamente grata por ter você ao meu lado.⭐",
 "Você é o meu lar, e a cada abraço seu, sinto que tudo fica mais completo e perfeito.⭐",
-"Te amo não apenas pelo que você é, mas pelo que eu sou quando estou com
-você.⭐",
+"Te amo não apenas pelo que você é, mas pelo que eu sou quando estou com você.⭐",
 "A cada dia que passa, descubro novas razões para te amar ainda mais. Você é minha Deusa.⭐",
 "Seu amor me inspira a ser uma pessoa melhor e a acreditar que tudo é possível.⭐",
 "Te amo com todo o meu coração, e não há nada que eu não faria para te ver feliz.⭐",
@@ -62,8 +61,7 @@ você.⭐",
 "Você é o meu sol em dias nublados e a razão pela qual meu coração canta de alegria.⭐",
 "Te amo mais do que as palavras podem expressar, e sempre encontrarei maneiras de te demonstrar isso.⭐",
 "Seu amor é um bálsamo para minha alma e sou eternamente grata por tê-la na minha vida.⭐",
-"Você é a melodia que embala meu coração e te amar é a minha maior
-felicidade.⭐",
+"Você é a melodia que embala meu coração e te amar é a minha maior felicidade.⭐",
 "Amo cada pequeno detalhe seu, desde seu sorriso até a forma como você me faz sentir amada.⭐"
 ];
 
