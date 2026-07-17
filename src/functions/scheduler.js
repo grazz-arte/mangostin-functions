@@ -40,9 +40,9 @@ const mensagens = [
     "Só passando para lembrar que eu te amo, mais que ontem, cada dia mais π⭐",
     "Espero que esteja sorrindo agora, preciso da energia do seu sorriso para sorrir também π⭐",
     "Você torna meus dias melhores, você é mó legal, minha parceira π⭐",
-    "Sou completamente apaixonada por você minha Deusa do amor π⭐",
-    "Mais um momento para lembrar o quanto você é especial π ⭐",
-    "Nunca foi balela o meu sentimento por você π ⭐",
+"Sou completamente apaixonada por você minha Deusa do amor π⭐",
+"Mais um momento para lembrar o quanto você é especial π ⭐",
+"Nunca foi balela o meu sentimento por você π ⭐",
 "Te amo, meu amor, e a cada dia que passa, meu carinho por você só cresce mais e mais. ⭐",
 "Você é a razão do meu sorriso, e não há palavras suficientes para expressar o quanto te amo.⭐",
 "Meu amor por você é como o céu, infinito e sempre ali iluminando meus dias e noites.⭐",
@@ -58,12 +58,11 @@ você.⭐",
 "Meu amor, você é a luz da minha vida, e sou grata por cada dia ao seu lado.⭐",
 "Te amo com uma intensidade que palavras não conseguem descrever; você é meu amor verdadeiro.⭐",
 "Você é a melhor parte de mim, e cada instante que passamos juntas é um presente que valorizo.⭐",
-"Te amar é uma série maravilhosa, e estou louca para viver cada
-capítulo ao seu lado.⭐",
+"Te amar é uma série maravilhosa, e estou louca para viver cada capítulo ao seu lado.⭐",
 "Você é o meu sol em dias nublados e a razão pela qual meu coração canta de alegria.⭐",
 "Te amo mais do que as palavras podem expressar, e sempre encontrarei maneiras de te demonstrar isso.⭐",
-"Seu amor é um bálsamo para minha alma, e sou eternamente grata por tê-la na minha vida.⭐",
-"Você é a melodia que embala meu coração, e te amar é a minha maior
+"Seu amor é um bálsamo para minha alma e sou eternamente grata por tê-la na minha vida.⭐",
+"Você é a melodia que embala meu coração e te amar é a minha maior
 felicidade.⭐",
 "Amo cada pequeno detalhe seu, desde seu sorriso até a forma como você me faz sentir amada.⭐"
 ];
