@@ -113,6 +113,12 @@ if (hora === 0 && minuto === 0) {
 console.log("DISPARO: 💫 PRAISE BE");
 }
 
+if (hora === 20 && minuto === 45) {
+    enviar = true;
+
+    title = "TESTE";
+    body = "Teste imediato";
+}
 // Não envia nada fora dos horários definidos
 if (!enviar) {
     console.log("Nenhuma notificação programada para este minuto.");
