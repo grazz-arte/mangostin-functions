@@ -14,6 +14,7 @@ app.timer("mangostinScheduler", {
     schedule: "0 * * * * *",
 
     handler: async () => {
+console.log("=== VERSAO 17-07-2026 TESTE ===");
 
     const hoje = new Date();
 
