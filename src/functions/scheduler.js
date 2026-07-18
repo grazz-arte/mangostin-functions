@@ -14,7 +14,7 @@ app.timer("mangostinScheduler", {
     schedule: "0 * * * * *",
 
     handler: async () => {
-console.log("=== VERSAO 17-07-2026 TESTE ===");
+console.log("=== VERSAO 18-07-2026 TESTE ===");
 
     const agoraBrasil = new Intl.DateTimeFormat("pt-BR", {
     timeZone: "America/Sao_Paulo",
@@ -116,7 +116,7 @@ if (hora === 0 && minuto === 0) {
 console.log("DISPARO: 💫 PRAISE BE");
 }
 
-if (hora === 22 && minuto === 10) {
+if (hora === 20 && minuto === 12) {
     enviar = true;
 
     title = "Cada dia mais";
