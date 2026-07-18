@@ -95,8 +95,8 @@ if (hora === 14 && minuto === 0) {
 console.log("DISPARO: Mangostin");
 }
 
-// 19:00
-if (hora === 3 && minuto === 30) {
+// 23:00
+if (hora === 23 && minuto === 0) {
     enviar = true;
 
     title = "🌙 BLESSED NIGHT";
@@ -116,8 +116,8 @@ console.log("DISPARO: 💫 PRAISE BE");
 if (hora === 22 && minuto === 10) {
     enviar = true;
 
-    title = "TESTE";
-    body = "Teste imediato";
+    title = "Cada dia mais";
+    body = "Meu amor é a maior verdade que possuo, amo você mais a cada dia que passa 🥰";
 }
 // Não envia nada fora dos horários definidos
 if (!enviar) {
