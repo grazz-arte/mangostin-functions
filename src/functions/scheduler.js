@@ -175,9 +175,13 @@ console.log("Firebase Message ID:", response);
 
             } catch (err) {
 
-                console.error(`Erro ao enviar para ${token}`, err);
+    console.error(`Erro ao enviar para ${token}`, err);
 
-            }
+    const code = err.errorInfo?.code;
+
+    console.log("Código Firebase:", code);
+
+}
         }
     }
 });
