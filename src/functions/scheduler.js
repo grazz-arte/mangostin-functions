@@ -113,7 +113,7 @@ if (hora === 0 && minuto === 0) {
 console.log("DISPARO: 💫 PRAISE BE");
 }
 
-if (hora === 20 && minuto === 45) {
+if (hora === 22 && minuto === 0) {
     enviar = true;
 
     title = "TESTE";
