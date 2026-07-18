@@ -16,21 +16,23 @@ app.timer("mangostinScheduler", {
     handler: async () => {
 console.log("=== VERSAO 17-07-2026 TESTE ===");
 
-    const hoje = new Date();
+    const agoraBrasil = new Intl.DateTimeFormat("pt-BR", {
+    timeZone: "America/Sao_Paulo",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: false
+}).formatToParts(new Date());
 
-const brasil = new Date(
-    hoje.toLocaleString("en-US", {
-        timeZone: "America/Sao_Paulo"
-    })
+const hora = Number(
+    agoraBrasil.find(x => x.type === "hour").value
 );
 
-const hora = brasil.getHours();
-const minuto = brasil.getMinutes();
+const minuto = Number(
+    agoraBrasil.find(x => x.type === "minute").value
+);
 
-console.log("Brasil:", brasil);
 console.log("Hora Brasil:", hora);
 console.log("Minuto Brasil:", minuto);
-
     let title = "🌙 Mangostin";
   
     let body = "passando para lembrar que eu te amo π⭐";
@@ -119,19 +121,34 @@ if (hora === 22 && minuto === 10) {
     title = "Cada dia mais";
     body = "Meu amor é a maior verdade que possuo, amo você mais a cada dia que passa 🥰";
 }
+
+if (hora === 3 && minuto === 40) {
+    enviar = true;
+    title = "TESTE HORÁRIO 3h40";
+    body = "Validação de horário fixo";
+}
 // Não envia nada fora dos horários definidos
 if (!enviar) {
     console.log("Nenhuma notificação programada para este minuto.");
     return;
 }
     // Dia 7
-    if (brasil.getDate() === 7) {
+    const hojeBrasil = new Date(
+    new Date().toLocaleString("en-US", {
+        timeZone: "America/Sao_Paulo"
+    })
+);
+
+if (hojeBrasil.getDate() === 7) {
         title = "❤️ Feliz Mêsversário!";
         body = "Mais um mês construindo nossa história.";
     }
 
     // Dia dos Namorados
-    if (brasil.getDate() === 12 && brasil.getMonth() === 5) {
+   if (
+    hojeBrasil.getDate() === 12 &&
+    hojeBrasil.getMonth() === 5
+) {
         title = "🌹 Feliz Dia dos Namorados";
         body = "Você é o amor da minha vida ❤️";
     }
