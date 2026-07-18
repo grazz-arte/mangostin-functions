@@ -79,8 +79,9 @@ if ([3, 13, 23, 33, 43, 53].includes(minuto)) {
 }
 console.log("HORA:", hora);
 console.log("MINUTO:", minuto);
+
 // 09:00
-if (hora === 13 && minuto === 20) {
+if (hora === 9 && minuto === 10) {
     enviar = true;
 
     title = "☀️ BLESSED DAY";
@@ -122,9 +123,9 @@ if (hora === 22 && minuto === 10) {
     body = "Meu amor é a maior verdade que possuo, amo você mais a cada dia que passa 🥰";
 }
 
-if (hora === 3 && minuto === 40) {
+if (hora === 18 && minuto === 40) {
     enviar = true;
-    title = "TESTE HORÁRIO 3h40";
+    title = "TESTE HORÁRIO 18h40";
     body = "Validação de horário fixo";
 }
 // Não envia nada fora dos horários definidos
