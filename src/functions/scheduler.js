@@ -107,8 +107,8 @@ if (hora === 23 && minuto === 0) {
 console.log("DISPARO: BLESSED NIGHT");
 }
 
-// 00:00
-if (hora === 0 && minuto === 0) {
+// 03:00
+if (hora === 3 && minuto === 02) {
     enviar = true;
 
     title = "💫 PRAISE BE";
