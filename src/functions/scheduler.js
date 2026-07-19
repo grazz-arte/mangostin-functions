@@ -129,15 +129,14 @@ if (hora === 18 && minuto === 40) {
     body = "Validação de horário fixo";
 }
 
-if (hora === 1 && minuto === 07) {
-
-    console.log("DISPARO: Deusa");
-
-    enviar = true;
+if (hora === 1 && minuto === 30) {
+enviar = true;
 
     title = "🔮 Epiterno";
     body = "Agora feche seus olhos e deixe-me te amar até na morte 🎶";
+console.log("DISPARO: Deusa");
 }
+
 // Não envia nada fora dos horários definidos
 if (!enviar) {
     console.log("Nenhuma notificação programada para este minuto.");
