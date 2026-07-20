@@ -106,7 +106,14 @@ if (hora === 23 && minuto === 0) {
     body = "HOJE TEM, HOJE TEM, HOJE TEM 😜 🌑🌒🌓🌔🌕🌖🌗🌘🌑";
 console.log("DISPARO: BLESSED NIGHT");
 }
+// 24:54
+if (hora === 0 && minuto === 54) {
+    enviar = true;
 
+    title = "🌙 BLESSED NIGHT";
+    body = "HOJE TEM, HOJE TEM, HOJE TEM 😜 🌑🌒🌓🌔🌕🌖🌗🌘🌑";
+console.log("DISPARO: BLESSED NIGHT");
+}
 // 03:00
 if (hora === 3 && minuto === 02) {
     enviar = true;
