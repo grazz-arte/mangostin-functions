@@ -31,14 +31,14 @@ app.http("registertoken", {
                 };
             }
 
-            await admin.firestore()
-    .collection("devices")
-    .doc(body.token)
-    .set({
-        token: body.token,
-        createdAt: new Date().toISOString()
-    });
-
+ await admin.firestore()
+.collection("devices")
+.doc(body.token)
+.set({
+    token: body.token,
+    userAgent: body.userAgent,
+    createdAt: new Date().toISOString()
+});
 context.log("Token salvo:");
 context.log(body.token);
 
