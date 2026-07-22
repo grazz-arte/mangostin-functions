@@ -1,7 +1,6 @@
 const { app } = require("@azure/functions");
 const admin = require("firebase-admin");
 
-// Inicializa o Firebase apenas uma vez
 if (!admin.apps.length) {
     admin.initializeApp({
         credential: admin.credential.cert({
@@ -20,37 +19,80 @@ app.http("sendtest", {
 
         try {
 
-            const response = await admin.messaging().send({
+            const snapshot = await admin
+                .firestore()
+                .collection("devices")
+                .get();
 
-                token: process.env.FCM_DEVICE_TOKEN,
+            const resultados = [];
 
-                notification: {
-                    title: "🥭 Mangostin",
-                    body: "Se você recebeu esta mensagem, Azure + Firebase estão funcionando! ❤️"
-                },
+            for (const doc of snapshot.docs) {
 
-                webpush: {
-                    notification: {
-                        icon: "https://raw.githubusercontent.com/grazz-arte/mangostin/main/icon-192.png",
-                        badge: "https://raw.githubusercontent.com/grazz-arte/mangostin/main/icon-192.png"
+                const token = doc.data().token;
+
+                try {
+
+                    const response = await admin.messaging().send({
+
+                        token,
+
+                        notification: {
+                            title: "🥭 Mangostin",
+                            body: "Teste enviado pelo Firestore ❤️"
+                        },
+
+                        webpush: {
+                            notification: {
+                                icon: "https://grazz-arte.github.io/mangostin/icon-192.png",
+                                badge: "https://grazz-arte.github.io/mangostin/icon-192.png"
+                            }
+                        }
+
+                    });
+
+                    context.log(`OK: ${token}`);
+                    resultados.push({
+                        token,
+                        success: true,
+                        response
+                    });
+
+                } catch (err) {
+
+                    context.error(`ERRO: ${token}`, err);
+
+                    resultados.push({
+                        token,
+                        success: false,
+                        error: err.message
+                    });
+
+                    const code = err.errorInfo?.code;
+
+                    if (
+                        code === "messaging/registration-token-not-registered" ||
+                        code === "messaging/invalid-registration-token"
+                    ) {
+
+                        await admin
+                            .firestore()
+                            .collection("devices")
+                            .doc(doc.id)
+                            .delete();
+
+                        context.log(`Token removido: ${doc.id}`);
                     }
                 }
-
-            });
-
-            context.log(response);
+            }
 
             return {
                 status: 200,
-                jsonBody: {
-                    success: true,
-                    response
-                }
+                jsonBody: resultados
             };
 
         } catch (err) {
 
-            context.log(err);
+            context.error(err);
 
             return {
                 status: 500,
@@ -63,7 +105,6 @@ app.http("sendtest", {
         }
 
     }
-
 });
 
 module.exports = app;
