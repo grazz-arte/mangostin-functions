@@ -14,9 +14,10 @@ app.timer("mangostinScheduler", {
     schedule: "0 * * * * *",
 
     handler: async () => {
-console.log("=== VERSAO 18-07-2026 TESTE ===");
 
-    const agoraBrasil = new Intl.DateTimeFormat("pt-BR", {
+        console.log("=== Scheduler v25-07-2026 ===");
+
+        const agoraBrasil = new Intl.DateTimeFormat("pt-BR", {
     timeZone: "America/Sao_Paulo",
     hour: "numeric",
     minute: "numeric",
@@ -30,6 +31,8 @@ const hora = Number(
 const minuto = Number(
     agoraBrasil.find(x => x.type === "minute").value
 );
+console.log("Hora:", hora);
+console.log("Minuto:", minuto);
 
 console.log("Hora Brasil:", hora);
 console.log("Minuto Brasil:", minuto);
@@ -149,7 +152,8 @@ if (!enviar) {
     console.log("Nenhuma notificação programada para este minuto.");
     return;
 }
-    // Dia 7
+console.log("Entrou na rotina de envio.");
+// Dia 7
     const hojeBrasil = new Date(
     new Date().toLocaleString("en-US", {
         timeZone: "America/Sao_Paulo"
@@ -169,22 +173,27 @@ if (hojeBrasil.getDate() === 7) {
         title = "🌹 Feliz Dia dos Namorados";
         body = "Você é o amor da minha vida ❤️";
     }
-
+console.log("Consultando Firestore...");
     const snapshot = await admin
             .firestore()
             .collection("devices")
             .get();
+console.log("Quantidade de dispositivos:", snapshot.size);
 
 console.log("Título:", title);
 console.log("Mensagem:", body);
 console.log("Dispositivos:", snapshot.docs.length);
 
-        for (const doc of snapshot.docs) {
+for (const doc of snapshot.docs) {
 
-            const token = doc.data().token;
+    console.log("==============================");
+    console.log("Documento:", doc.id);
 
-            try {
+    const token = doc.data().token;
 
+    console.log("Token:", token);
+
+    try {onsole.log("Enviando notificação...");
                 const response = await admin.messaging().send({
     token,
 
