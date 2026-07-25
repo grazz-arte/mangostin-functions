@@ -13,7 +13,7 @@ if (!admin.apps.length) {
 app.timer("mangostinScheduler", {
     schedule: "0 * * * * *",
 
-    handler: async () =>
+    handler: async () => {
     console.log("=== Scheduler v25-07-2026 ===");
 
         const agoraBrasil = new Intl.DateTimeFormat("pt-BR", {
