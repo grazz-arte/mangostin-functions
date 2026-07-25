@@ -15,7 +15,9 @@ app.timer("mangostinScheduler", {
 
     handler: async () => {
 
-        console.log("=== Scheduler v25-07-2026 ===");
+    throw new Error("VERSAO NOVA DO SCHEDULER");
+
+    console.log("=== Scheduler v25-07-2026 ===");
 
         const agoraBrasil = new Intl.DateTimeFormat("pt-BR", {
     timeZone: "America/Sao_Paulo",
